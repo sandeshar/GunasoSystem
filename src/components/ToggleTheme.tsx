@@ -9,6 +9,7 @@ export const ToggleTheme = () => {
     return (
         <Toggle
             id="theme-toggle"
+            labelText="Theme"
             labelA="Light"
             labelB="Dark"
             toggled={toggled}

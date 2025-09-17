@@ -1,0 +1,13 @@
+main {
+    height: 100vh;
+    padding: 5px;
+    padding-top: 140px;
+}
+
+.custom_header {
+    min-height: 140px;
+}
+
+.sidebar {
+    margin-top: 92px;
+}

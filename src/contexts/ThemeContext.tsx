@@ -10,7 +10,7 @@ interface ThemeContextType {
     toggleTheme: () => void;
 }
 
-const ContextProvider = createContext<ThemeContextType | undefined>(undefined);
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     const [theme, setTheme] = useState<Themes>('g10');
@@ -28,15 +28,15 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     }
 
     return (
-        <ContextProvider.Provider value={{ theme, setTheme, toggleTheme }}>
+        <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
             <CarbonTheme theme={theme}>
                 {children}
             </CarbonTheme>
-        </ContextProvider.Provider>
+        </ThemeContext.Provider>
     );
 }
 export function useTheme() {
-    const context = useContext(ContextProvider);
+    const context = useContext(ThemeContext);
     if (!context) {
         throw new Error('useTheme must be used within a ThemeProvider');
     }
