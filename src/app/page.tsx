@@ -1,7 +1,7 @@
 'use client'
 import { ToggleTheme } from "@/components/ToggleTheme";
 import { ToggleLanguage } from "@/components/ToggleLanguage";
-import { Button, Toggle } from "@carbon/react";
+import { Button, InlineNotification, ToastNotification, Toggle } from "@carbon/react";
 import { useLanguageStore } from "@/utils/LanguageSwitcher";
 import Link from "next/link";
 import { useState } from "react";
@@ -25,7 +25,6 @@ export default function Home() {
       }}>
         {message.Title}
       </h1>
-
       {/* Controls */}
       <div style={{
         display: 'flex',
