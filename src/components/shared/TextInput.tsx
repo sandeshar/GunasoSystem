@@ -7,6 +7,7 @@ interface TextInputProps {
     disabled?: boolean;
     invalid?: boolean;
     invalidText?: string;
+    placeholder?: string;
 }
 
 export default function TextInput({
@@ -15,7 +16,8 @@ export default function TextInput({
     onChange,
     disabled = false,
     invalid = false,
-    invalidText
+    invalidText,
+    placeholder,
 }: TextInputProps) {
     return (
         <CarbonTextInput
@@ -26,6 +28,7 @@ export default function TextInput({
             disabled={disabled}
             invalid={invalid}
             invalidText={invalidText}
+            placeholder={placeholder}
         />
     );
 }

@@ -7,6 +7,7 @@ interface TextareaProps {
     disabled?: boolean;
     invalid?: boolean;
     invalidText?: string;
+    placeholder?: string;
 }
 
 export default function TextArea({
@@ -15,7 +16,8 @@ export default function TextArea({
     onChange,
     disabled = false,
     invalid = false,
-    invalidText
+    invalidText,
+    placeholder,
 }: TextareaProps) {
     return (
         <MultiText
@@ -26,6 +28,7 @@ export default function TextArea({
             disabled={disabled}
             invalid={invalid}
             invalidText={invalidText}
+            placeholder={placeholder}
         />
     );
 }

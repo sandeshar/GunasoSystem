@@ -1,6 +1,6 @@
 # F2 Components: Carbon Component Mapping and Shared Components
 
-## Component Inventory (7 Shared Components)
+## Component Inventory (10 Shared Components)
 
 ### 1. Button maps to Carbon Button
 Purpose: Primary interaction element
@@ -38,16 +38,16 @@ States:
 - Error: invalid=true with invalidText
 - Empty: items=[] shows empty dropdown
 
-### 5. Table maps to Carbon DataTable
-Purpose: Structured data display
-Props: rows (required), headers (required), loading
+### 5. FileUploader maps to Carbon FileUploaderDropContainer
+Purpose: File upload with drag and drop
+Props: onAddFiles, disabled
 States:
-- Loading: loading=true shows "Loading..." message
-- Disabled: N/A (minimal version)
-- Error: N/A (minimal version)
-- Empty: Shows "No data available" when rows.length = 0
+- Loading: disabled=true
+- Disabled: disabled=true
+- Error: Handled in onAddFiles callback
+- Empty: Default drop zone state
 
-### 6. FileUploader maps to Carbon FileUploaderDropContainer
+### 6. Toast maps to Carbon Callout
 Purpose: File upload with drag and drop
 Props: onAddFiles, disabled
 States:
@@ -64,6 +64,33 @@ States:
 - Disabled: N/A (toasts are temporary)
 - Error: kind="error" for error notifications
 - Empty: Auto-hide after duration
+
+### 8. Modal maps to Carbon Dialog
+Purpose: Modal dialogs and confirmations
+Props: open (required), onClose (required), onConfirm (required), title, description, confirmLabel, cancelLabel
+States:
+- Loading: Show loading spinner in dialog
+- Disabled: disabled state on buttons
+- Error: Show error message in dialog body
+- Empty: N/A (modals have content)
+
+### 9. Filter (Custom Component)
+Purpose: Filter trigger button with icon
+Props: No props (minimal implementation)
+States:
+- Loading: N/A (static component)
+- Disabled: N/A (static component)
+- Error: N/A (static component)
+- Empty: N/A (static component)
+
+### 10. Table maps to Carbon DataTable
+Purpose: Structured data display (moved from position 5)
+Props: rows (required), headers (required), loading
+States:
+- Loading: loading=true shows "Loading..." message
+- Disabled: N/A (minimal version)
+- Error: N/A (minimal version)
+- Empty: Shows "No data available" when rows.length = 0
 
 ## Carbon Design System Token Usage
 
@@ -104,7 +131,7 @@ Table rows={[]} headers={headers} // Shows "No data available"
 ## Status: F2 COMPLETED
 
 Deliverables:
-- 7 minimal shared components scaffolded
+- 10 minimal shared components scaffolded
 - Carbon component mapping documented
 - Loading/empty/error/disabled states implemented
 - TypeScript interfaces with essential props only

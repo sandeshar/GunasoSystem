@@ -1,7 +1,7 @@
 'use client';
 import { useLanguageStore } from "@/utils/LanguageSwitcher";
-import { LogoReact } from "@carbon/icons-react";
-import { Header, HeaderContainer, HeaderMenuButton, HeaderMenuItem, HeaderName, HeaderNavigation, SideNav, SideNavItem, SideNavLink } from "@carbon/react";
+import { Menu } from "@carbon/icons-react";
+import { Header, HeaderContainer, HeaderMenuButton, HeaderMenuItem, HeaderName, HeaderNavigation, SideNav, SideNavLink } from "@carbon/react";
 
 export default function NavBar({ role }: { role?: 'citizen' | 'staff' }) {
     const { message } = useLanguageStore();
@@ -21,14 +21,28 @@ export default function NavBar({ role }: { role?: 'citizen' | 'staff' }) {
         <HeaderContainer render={({ isSideNavExpanded, onClickSideNavExpand }) => (
             <>
                 <Header aria-label="Carbon Header" className="custom_header" >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-                        {role != 'staff' &&
-                            <HeaderName prefix="" />}
-                        <LogoReact height={112} width={112} />
+                    <div style={{ display: 'flex', alignItems: 'center', width: '100%', position: 'relative' }}>
+                        <div style={{
+                            height: '80px',
+                            width: '80px',
+                            borderRadius: '100%',
+                            backgroundColor: '#1900ffff',
+                            color: 'white',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            textAlign: 'center',
+                            position: 'absolute',
+                            left: '50%',
+                            transform: 'translateX(-50%)'
+                        }}>Gunaso Nepal</div>
                         <HeaderMenuButton
                             aria-label="Open menu"
                             isActive={isSideNavExpanded}
-                            onClick={onClickSideNavExpand} />
+                            onClick={onClickSideNavExpand}
+                            renderMenuIcon={<Menu height={34} width={34} />}
+                            style={{ marginLeft: 'auto' }}
+                        />
                         <HeaderNavigation>
                             {role === 'citizen' && Object.values(citizenMenu).map((item) => (
                                 <HeaderMenuItem key={item.href} href={item.href}>{item.text}</HeaderMenuItem>

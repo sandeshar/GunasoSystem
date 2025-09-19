@@ -27,6 +27,7 @@ export default function DropDown({
             disabled={disabled}
             invalid={invalid}
             invalidText={invalidText}
+            defaultValue={items[0]}
         />
     );
 }
