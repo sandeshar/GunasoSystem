@@ -1,12 +1,14 @@
-import Footer from "@/components/Footer";
-import NavBar from "@/components/NavBar";
+import StaffNavBar from "@/components/staff/StaffNavBar";
+import StaffFooter from "@/components/staff/StaffFooter";
 
-export default function CitizenLayout({ children }: { children: React.ReactNode }) {
+export default function StaffLayout({ children }: { children: React.ReactNode }) {
     return (
         <>
-            <NavBar role="staff" />
-            {children}
-            <Footer role="staff" />
+            <StaffNavBar />
+            <main>
+                {children}
+            </main >
+            <StaffFooter />
         </>
     );
 }

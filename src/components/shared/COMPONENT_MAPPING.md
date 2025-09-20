@@ -1,6 +1,6 @@
 # F2 Components: Carbon Component Mapping and Shared Components
 
-## Component Inventory (10 Shared Components)
+## Component Inventory (11 Shared Components)
 
 ### 1. Button maps to Carbon Button
 Purpose: Primary interaction element
@@ -47,7 +47,16 @@ States:
 - Error: Handled in onAddFiles callback
 - Empty: Default drop zone state
 
-### 6. Toast maps to Carbon Callout
+### 6. Logo (Custom Component)
+Purpose: Reusable logo component for both citizen and staff systems
+Props: variant ("citizen" | "staff"), customText, className, clickable, href
+States:
+- Citizen variant: displays "Gunaso Nepal", uses citizen-logo class
+- Staff variant: displays "Staff Portal", uses staff-logo class
+- Clickable: navigates to appropriate home page for variant
+- Custom: allows override of text and navigation
+
+### 7. Toast maps to Carbon Callout
 Purpose: File upload with drag and drop
 Props: onAddFiles, disabled
 States:

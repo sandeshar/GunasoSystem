@@ -4,20 +4,37 @@ import { AddComment, Home, Notification, UserFeedback } from "@carbon/icons-reac
 import { Column, Grid } from "@carbon/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLanguageStore } from "@/utils/LanguageSwitcher";
 
-export default function Footer({ role }: { role?: string }) {
+export default function CitizenFooter() {
     const pathname = usePathname();
+    const { message } = useLanguageStore();
+
     const menu = [
-        { name: "Home", link: "/citizen", logo: <Home size={32} /> },
-        { name: "Grievance", link: "/citizen/mygrievances", logo: <UserFeedback size={32} /> },
-        { name: "Submit", link: "/citizen/submit", logo: <AddComment size={32} /> },
-        { name: "Notification", link: "/citizen/notification", logo: <Notification size={32} /> },
+        {
+            name: message.Home || "Home",
+            link: "/citizen",
+            logo: <Home size={32} />
+        },
+        {
+            name: message.MyGrievances || "Grievances",
+            link: "/citizen/mygrievances",
+            logo: <UserFeedback size={32} />
+        },
+        {
+            name: message.Submit || "Submit",
+            link: "/citizen/submit",
+            logo: <AddComment size={32} />
+        },
+        {
+            name: message.Notifications || "Notifications",
+            link: "/citizen/notification",
+            logo: <Notification size={32} />
+        },
     ];
-    if (role === 'staff') {
-        return (<p style={{ textAlign: 'center', padding: '1rem', borderTop: '1px solid #afafafff' }}>© Copyright</p>);
-    }
+
     return (
-        <Grid style={{ padding: '10px', width: '100%', position: 'fixed', bottom: 0, borderTop: '1px solid #afafafff', backgroundColor: 'inherit' }}>
+        <Grid className="citizen-footer">
             {menu.map((item) => {
                 let isActive = false;
 
