@@ -29,19 +29,7 @@ export default function FileUploader({
                 disabled={disabled}
                 onAddFiles={handleAddFiles}
                 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', maxHeight: '50px', color: 'inherit' }}
-                labelText={
-                    <span
-                        style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "8px",
-                            fontSize: "14px",
-                        }}
-                    >
-
-                        Drag & Drop files here or Upload<Folder size={20} />
-                    </span>
-                }
+                labelText="Drag & Drop files here or Upload"
             />
 
         </div>
